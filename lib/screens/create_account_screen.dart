@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:travelscape/screens/home_screen.dart';
@@ -19,7 +20,7 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
   TextEditingController nameController = TextEditingController();
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
-
+  bool isCreatingAccount = false;
   @override
   Widget build(BuildContext context) {
     double _height = MediaQuery.of(context).size.height;
@@ -166,18 +167,22 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                             ),
                           ),
                           SizedBox(height: 21 / 812 * _height),
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Text(
-                              error,
-                              style: GoogleFonts.poppins(
-                                color: Colors.red,
-                              ),
-                            ),
-                          ),
+                          // Padding(
+                          //   padding: const EdgeInsets.all(8.0),
+                          //   child: Text(
+                          //     error,
+                          //     style: GoogleFonts.poppins(
+                          //       color: Colors.red,
+                          //     ),
+                          //   ),
+                          // ),
                           InkWell(
+                            enableFeedback: true,
                             onTap: () async {
                               try {
+                                setState(() {
+                                  isCreatingAccount = true;
+                                });
                                 dynamic result = await _auth.register(
                                     emailController.text,
                                     passwordController.text,
@@ -185,20 +190,68 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                                 if (result == "Enter a Stronger Password") {
                                   setState(() {
                                     error = "Enter a Stronger Password";
+                                    isCreatingAccount = false;
+                                    ScaffoldMessenger.of(context)
+                                        .showSnackBar(SnackBar(
+                                      content: Text(
+                                        "$error",
+                                        style: GoogleFonts.poppins(),
+                                      ),
+                                      behavior: SnackBarBehavior.floating,
+                                      shape: RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(20.0)),
+                                    ));
                                   });
                                 } else if (result ==
                                     "Please Enter a Valid Email") {
                                   setState(() {
                                     error = "Please Enter a Valid Email";
+                                    isCreatingAccount = false;
+                                    ScaffoldMessenger.of(context)
+                                        .showSnackBar(SnackBar(
+                                      content: Text(
+                                        "$error",
+                                        style: GoogleFonts.poppins(),
+                                      ),
+                                      behavior: SnackBarBehavior.floating,
+                                      shape: RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(20.0)),
+                                    ));
                                   });
                                 } else if (result ==
-                                    "Email is already in Use") {
+                                    "This Email ID is already in use") {
                                   setState(() {
-                                    error = "Email is already in Use";
+                                    error = "This Email ID is already in use";
+                                    isCreatingAccount = false;
+                                    ScaffoldMessenger.of(context)
+                                        .showSnackBar(SnackBar(
+                                      content: Text(
+                                        "$error",
+                                        style: GoogleFonts.poppins(),
+                                      ),
+                                      behavior: SnackBarBehavior.floating,
+                                      shape: RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(20.0)),
+                                    ));
                                   });
                                 } else if (result == "Unknown Error Occured") {
                                   setState(() {
                                     error = "Unknown Error Occured";
+                                    isCreatingAccount = false;
+                                    ScaffoldMessenger.of(context)
+                                        .showSnackBar(SnackBar(
+                                      content: Text(
+                                        "$error",
+                                        style: GoogleFonts.poppins(),
+                                      ),
+                                      behavior: SnackBarBehavior.floating,
+                                      shape: RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(20.0)),
+                                    ));
                                   });
                                 } else {
                                   Navigator.of(context).pushAndRemoveUntil(
@@ -207,35 +260,53 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                                       ),
                                       (route) => false);
                                 }
-                              } catch (e) {
-                                print(e.toString());
+                              } on PlatformException catch (e) {
+                                print(e.code);
                                 setState(() {
                                   error = e.toString();
                                 });
+                                ScaffoldMessenger.of(context)
+                                    .showSnackBar(SnackBar(
+                                  content: Text(
+                                    "$e",
+                                    style: GoogleFonts.poppins(),
+                                  ),
+                                  behavior: SnackBarBehavior.floating,
+                                  shape: RoundedRectangleBorder(
+                                      borderRadius:
+                                          BorderRadius.circular(20.0)),
+                                ));
                               }
                             },
-                            child: Container(
-                              width: 180 / 375 * _width,
-                              height: 45 / 812 * _height,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(20),
-                                color: Color(0x3f000000),
-                              ),
-                              padding: const EdgeInsets.symmetric(
-                                vertical: 5,
-                                horizontal: 10,
-                              ),
-                              child: Center(
-                                child: Text(
-                                  "Create Account",
-                                  style: GoogleFonts.poppins(
-                                    color: Color(0xfffffffe),
-                                    fontSize: 15,
-                                    fontWeight: FontWeight.w500,
+                            child: isCreatingAccount == false
+                                ? Container(
+                                    width: 180 / 375 * _width,
+                                    height: 45 / 812 * _height,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(20),
+                                      color: Color(0x3f000000),
+                                    ),
+                                    padding: const EdgeInsets.symmetric(
+                                      vertical: 5,
+                                      horizontal: 10,
+                                    ),
+                                    child: Center(
+                                      child: Text(
+                                        "Create Account",
+                                        style: GoogleFonts.poppins(
+                                          color: Color(0xfffffffe),
+                                          fontSize: 15,
+                                          fontWeight: FontWeight.w500,
+                                        ),
+                                      ),
+                                    ),
+                                  )
+                                : Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: CircularProgressIndicator(
+                                      color: Colors.white,
+                                    ),
                                   ),
-                                ),
-                              ),
-                            ),
                           ),
                           SizedBox(height: 21 / 812 * _height),
                           Container(

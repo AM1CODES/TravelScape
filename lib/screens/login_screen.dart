@@ -21,6 +21,8 @@ class _LoginScreenState extends State<LoginScreen> {
   String error = '';
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+
+  bool isLoggingIn = false;
   @override
   Widget build(BuildContext context) {
     double _height = MediaQuery.of(context).size.height;
@@ -43,6 +45,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   Container(
                     width: _width,
+                    height: _height * (685 - 250) / 685,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.only(
                         topLeft: Radius.circular(36),
@@ -138,74 +141,119 @@ class _LoginScreenState extends State<LoginScreen> {
                           ),
                         ),
                         SizedBox(height: 21 / 812 * _height),
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Text(
-                            error,
-                            style: GoogleFonts.poppins(
-                              color: Colors.red,
-                            ),
-                          ),
-                        ),
+                        // Padding(
+                        //   padding: const EdgeInsets.all(8.0),
+                        //   child: Text(
+                        //     error,
+                        //     style: GoogleFonts.poppins(
+                        //       color: Colors.red,
+                        //     ),
+                        //   ),
+                        // ),
                         InkWell(
                           onTap: () async {
                             try {
+                              setState(() {
+                                isLoggingIn = true;
+                              });
                               dynamic result = await _auth.signIn(
-                                  emailController.text, passwordController.text);
-
+                                  emailController.text,
+                                  passwordController.text);
                               if (result == "Enter A Valid Email-Id") {
                                 setState(() {
                                   error = "Enter a Stronger Password";
-                                  Scaffold.of(context).showSnackBar(SnackBar(
-                                      content: Text(
-                                    error,
-                                    style: GoogleFonts.poppins(),
-                                  )));
+                                  isLoggingIn = false;
+                                  ScaffoldMessenger.of(context)
+                                      .showSnackBar(SnackBar(
+                                    content: Text(
+                                      "$error",
+                                      style: GoogleFonts.poppins(),
+                                    ),
+                                    behavior: SnackBarBehavior.floating,
+                                    shape: RoundedRectangleBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(20.0)),
+                                  ));
                                 });
                               } else if (result == "Incorrect Password")
                                 setState(() {
                                   error = "Incorrect Password";
-                                  Scaffold.of(context).showSnackBar(SnackBar(
-                                      content: Text(
-                                    error,
-                                    style: GoogleFonts.poppins(),
-                                  )));
+                                  isLoggingIn = false;
+                                  ScaffoldMessenger.of(context)
+                                      .showSnackBar(SnackBar(
+                                    content: Text(
+                                      "$error",
+                                      style: GoogleFonts.poppins(),
+                                    ),
+                                    behavior: SnackBarBehavior.floating,
+                                    shape: RoundedRectangleBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(20.0)),
+                                  ));
                                 });
                               else if (result == "User Not Found")
                                 setState(() {
                                   error = "User Not Found";
-                                  Scaffold.of(context).showSnackBar(SnackBar(
-                                      content: Text(
-                                    error,
-                                    style: GoogleFonts.poppins(),
-                                  )));
+                                  isLoggingIn = false;
+                                  ScaffoldMessenger.of(context)
+                                      .showSnackBar(SnackBar(
+                                    content: Text(
+                                      "$error",
+                                      style: GoogleFonts.poppins(),
+                                    ),
+                                    behavior: SnackBarBehavior.floating,
+                                    shape: RoundedRectangleBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(20.0)),
+                                  ));
                                 });
                               else if (result == "User diasbled")
                                 setState(() {
                                   error = "User diasbled";
-                                  Scaffold.of(context).showSnackBar(SnackBar(
-                                      content: Text(
-                                    error,
-                                    style: GoogleFonts.poppins(),
-                                  )));
+                                  isLoggingIn = false;
+                                  ScaffoldMessenger.of(context)
+                                      .showSnackBar(SnackBar(
+                                    content: Text(
+                                      "$error",
+                                      style: GoogleFonts.poppins(),
+                                    ),
+                                    behavior: SnackBarBehavior.floating,
+                                    shape: RoundedRectangleBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(20.0)),
+                                  ));
                                 });
                               else if (result == "Too many requests")
                                 setState(() {
                                   error = "Too many requests";
-                                  Scaffold.of(context).showSnackBar(SnackBar(
-                                      content: Text(
-                                    error,
-                                    style: GoogleFonts.poppins(),
-                                  )));
+                                  isLoggingIn = false;
+                                  ScaffoldMessenger.of(context)
+                                      .showSnackBar(SnackBar(
+                                    content: Text(
+                                      "$error",
+                                      style: GoogleFonts.poppins(),
+                                    ),
+                                    behavior: SnackBarBehavior.floating,
+                                    shape: RoundedRectangleBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(20.0)),
+                                  ));
                                 });
                               else if (result == "Unknown error")
                                 setState(() {
                                   error = "Unknown error";
-                                  Scaffold.of(context).showSnackBar(SnackBar(
-                                      content: Text(
-                                    error,
-                                    style: GoogleFonts.poppins(),
-                                  )));
+                                  isLoggingIn = false;
+                                  ScaffoldMessenger.of(context)
+                                      .showSnackBar(SnackBar(
+                                    content: Text(
+                                      "$error",
+                                      style: GoogleFonts.poppins(),
+                                    ),
+                                    behavior: SnackBarBehavior.floating,
+                                    shape: RoundedRectangleBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(20.0)),
+                                  ));
                                 });
                               else {
                                 Navigator.of(context).pushAndRemoveUntil(
@@ -221,46 +269,57 @@ class _LoginScreenState extends State<LoginScreen> {
                               });
                             }
                           },
-                          child: Container(
-                            width: 150,
-                            height: 40,
-                            child: Row(
-                              mainAxisSize: MainAxisSize.min,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Container(
-                                  width: 150,
-                                  height: 40,
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(20),
-                                    color: Color(0x3f000000),
-                                  ),
-                                  padding: const EdgeInsets.only(
-                                    left: 16,
-                                    right: 13,
-                                    top: 7,
-                                    bottom: 10,
-                                  ),
+                          child: isLoggingIn == false
+                              ? Container(
+                                  width: 150 / 375 * _width,
+                                  height: 40 / 812 * _height,
                                   child: Row(
                                     mainAxisSize: MainAxisSize.min,
                                     mainAxisAlignment: MainAxisAlignment.center,
-                                    crossAxisAlignment: CrossAxisAlignment.center,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
                                     children: [
-                                      Text(
-                                        "Log In",
-                                        style: GoogleFonts.poppins(
-                                          color: Color(0xfffffffe),
-                                          fontSize: 15,
-                                          fontWeight: FontWeight.w500,
+                                      Container(
+                                        width: 150 / 375 * _width,
+                                        height: 40 / 812 * _height,
+                                        decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(20),
+                                          color: Color(0x3f000000),
+                                        ),
+                                        padding: const EdgeInsets.only(
+                                          left: 16,
+                                          right: 13,
+                                          top: 7,
+                                          bottom: 10,
+                                        ),
+                                        child: Row(
+                                          mainAxisSize: MainAxisSize.min,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.center,
+                                          children: [
+                                            Text(
+                                              "Log In",
+                                              style: GoogleFonts.poppins(
+                                                color: Color(0xfffffffe),
+                                                fontSize: 15,
+                                                fontWeight: FontWeight.w500,
+                                              ),
+                                            ),
+                                          ],
                                         ),
                                       ),
                                     ],
                                   ),
+                                )
+                              : Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: CircularProgressIndicator(
+                                    color: Colors.white,
+                                  ),
                                 ),
-                              ],
-                            ),
-                          ),
                         ),
                         SizedBox(height: 21 / 812 * _height),
                         Container(

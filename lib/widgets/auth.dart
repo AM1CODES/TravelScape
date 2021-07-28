@@ -23,31 +23,26 @@ class AuthService {
           email: email, password: password);
       User? user = result.user;
       return _userFromFirebaseUser(user);
-    } on PlatformException catch (e) {
+    } on FirebaseAuthException catch (e) {
+      print(e.code);
       switch (e.code) {
-        case 'ERROR_INVALID_EMAIL':
+        case 'invalid-email':
           error = "Enter A Valid Email-Id";
-          // print("Enter A Valid Email-Id");
           break;
-        case 'ERROR_WRONG_PASSWORD':
+        case 'wrong-password':
           error = "Incorrect Password";
-          // print("Incorrect Password");
           break;
-        case 'ERROR_USER_NOT_FOUND':
+        case 'user-not-found':
           error = "User Not Found";
-          // print("User Not Found");
           break;
-        case 'ERROR_USER_DISABLED':
+        case 'user-disabled':
           error = "User diasbled";
-          // print("User diasbled");
           break;
-        case 'ERROR_TOO_MANY_REQUESTS':
+        case 'too-many-requests':
           error = "Too many requests";
-          // print("Too many requests");
           break;
         default:
           error = "Unknown error";
-          // print("Unknown error");
           break;
       }
       return error;
@@ -68,18 +63,19 @@ class AuthService {
         // 'events': initialEvents,
       });
       return _userFromFirebaseUser(user);
-    } on PlatformException catch (e) {
+    } on FirebaseAuthException catch (e) {
       switch (e.code) {
-        case 'ERROR_WEAK_PASSWORD':
-          error = "Enter a Stronger Password";
-          break;
-        case 'ERROR_INVALID_EMAIL':
+        case 'invalid-email':
           error = "Please Enter a Valid Email";
           break;
-        case 'ERROR_EMAIL_ALREADY_IN_USE':
-          error = "Email is already in Use";
+        case 'email-already-in-use':
+          error = "This Email ID is already in use";
+          break;
+        case 'weak-password':
+          error = "Enter a Stronger Password";
           break;
         default:
+          print(e.code);
           error = "Unknown Error Occured";
           break;
       }
