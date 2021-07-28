@@ -141,7 +141,8 @@ class _CalendarState extends State<CalendarScreen> {
                           color: Color(0xff16161a),
                           fontWeight: FontWeight.w500,
                         ),
-                        holidayTextStyle: GoogleFonts.poppins(color: Colors.red),
+                        holidayTextStyle:
+                            GoogleFonts.poppins(color: Colors.red),
                         isTodayHighlighted: true,
                         selectedDecoration: BoxDecoration(
                           color: Colors.blue,
@@ -151,7 +152,6 @@ class _CalendarState extends State<CalendarScreen> {
                         selectedTextStyle: TextStyle(
                           color: Color(0xff16161a),
                           fontWeight: FontWeight.w500,
-
                         ),
                         todayDecoration: BoxDecoration(
                           color: Colors.purpleAccent,
@@ -197,7 +197,7 @@ class _CalendarState extends State<CalendarScreen> {
                   ),
                   Container(
                     width: _width,
-                    height: 240 / 812 * _height,
+                    height: 290 / 812 * _height,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.only(
                         topLeft: Radius.circular(36),
@@ -217,7 +217,7 @@ class _CalendarState extends State<CalendarScreen> {
                               "Travel Plans",
                               style: GoogleFonts.poppins(
                                 color: Color(0xfffffffe),
-                                fontSize: 24, 
+                                fontSize: 24,
                                 fontWeight: FontWeight.w700,
                               ),
                             ),
@@ -230,12 +230,12 @@ class _CalendarState extends State<CalendarScreen> {
                                       title: Text(
                                         event.title,
                                         style: GoogleFonts.poppins(
-                                          color: Color(0xfffffffe), 
+                                          color: Color(0xfffffffe),
                                         ),
                                       ),
                                       leading: Icon(
                                         FontAwesomeIcons.calendar,
-                                        color: Color(0xfffffffe), 
+                                        color: Color(0xfffffffe),
                                       ),
                                     ),
                                   ),
@@ -254,7 +254,7 @@ class _CalendarState extends State<CalendarScreen> {
                                     offset: Offset(0, 4),
                                   ),
                                 ],
-                                color: Color(0xfffffffe), 
+                                color: Color(0xfffffffe),
                               ),
                               child: InkWell(
                                 onTap: () => showDialog(
@@ -278,12 +278,14 @@ class _CalendarState extends State<CalendarScreen> {
                                                 null) {
                                               selectedEvents?[selectedDay]!.add(
                                                 Event(
-                                                    title: _eventController.text),
+                                                    title:
+                                                        _eventController.text),
                                               );
                                             } else {
                                               selectedEvents?[selectedDay] = [
                                                 Event(
-                                                    title: _eventController.text)
+                                                    title:
+                                                        _eventController.text)
                                               ];
                                             }
                                           }
