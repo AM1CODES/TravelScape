@@ -1,19 +1,19 @@
 <p align="center">
-<img src="https://github.com/elecTRON-Fellowship/Sian-MLH/blob/main/designs/figma/Logo%20(2).png" alt="drawing" width="300"/>
+<img src="https://github.com/amansharma2910/TravelScape/blob/main/Design/App%20UI/Logo.png" alt="drawing" width="300"/>
 </p>
 
 
 ## Inspiration🌠
-Since the start of the pandemic, everyone has been living inside their homes. With all the travel restrictions, many tourist spots which used to be flooded with tourists all across the world have suddenly become empty with little to no visitors. **This has not only affected the tourism sector of different regions but has also affected the local businesses** that were dependent on the tourism sector for their daily livelihood. We saw this as a problem and to tackle it, we built Sian.
+Since the start of the pandemic, everyone has been living inside their homes. With all the travel restrictions, many tourist spots which used to be flooded with tourists all across the world have suddenly become empty with little to no visitors. **This has not only affected the tourism sector of different regions but has also affected the local businesses** that were dependent on the tourism sector for their daily livelihood. We saw this as a problem and to tackle it, we built TravelScape.
 
 ## What it does🚀
 
-Sian is one of a kind mobile application— **A gamified tourism app**, that helps not only in promoting tourism in the most fun way possible but also helps in supporting those for whom tourism is the life support. 
-People love traveling, and people love taking lots and lots of selfies! Sian leverages just these two things in a bid to revolutionize and revive the tourism industry. We reward our users with reward points for visiting some of the popular tourist destinations in the world. These reward points can then be exchanged for discounts and gift cards at our partner stores, thus empowering businesses. 
+TravelScape is one of a kind mobile application— **A gamified tourism app**, that helps not only in promoting tourism in the most fun way possible but also helps in supporting those for whom tourism is the life support. 
+People love traveling, and people love taking lots and lots of selfies! TravelScape leverages just these two things in a bid to revolutionize and revive the tourism industry. We reward our users with reward points for visiting some of the popular tourist destinations in the world. These reward points can then be exchanged for discounts and gift cards at our partner stores, thus empowering businesses. 
 
 A user can log in to the application using our regular authentication method but to make things even easier we also have **Google authentication** that helps in saving up time for the user by 1-tap logins. 
 
-Once logged in, Sian unlocks a whole set of functionalities for the user! 
+Once logged in, TravelScape unlocks a whole set of functionalities for the user! 
 
 * We know how difficult planning and keeping track of your trips can get. The **Google Calendar** integration allows the users to plan their travels right from the app. 
 * The in-app **Google Map**, with some of the most popular tourist destinations marked on it, lets the users find their way to the tourist destination that they wish to visit. A single tap on the navigation button guides the users to their desired location with proper directions and in no time. 
@@ -24,10 +24,10 @@ Every time the user shares clicks and shares images, they receive some reward po
 
 ## How we built it🔨
 ![image](https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white)  ![image](https://img.shields.io/badge/adobe-%23FF0000.svg?style=for-the-badge&logo=adobe&logoColor=white)  ![image](https://img.shields.io/badge/Dart-0175C2?style=for-the-badge&logo=dart&logoColor=white)  ![image](https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=flutter&logoColor=white)  ![image](https://img.shields.io/badge/Google%20Cloud-4285F4?style=for-the-badge&logo=google-cloud&logoColor=white)  ![image](https://img.shields.io/badge/firebase-%23039BE5.svg?style=for-the-badge&logo=firebase)  ![image](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white) </br>
-We started off by creating a prototype in **Figma**. The mobile application was built using **Flutter** and Dart. We made use of **Firebase** for authentication and for saving user data. We made use of **Google Maps SDK** to integrate a map in our application. We used the Flutter Camera module to capture and share images on social media. We also used Flutter module and the **Calender SDK** to add a calendar and for adding events to it in the application. All in all, Sian relies heavily on **Google Could** and the suite of SDKs and functionalities it provides to deliver our users a feature-rich experience.
+We started off by creating a prototype in **Figma**. The mobile application was built using **Flutter** and Dart. We made use of **Firebase** for authentication and for saving user data. We made use of **Google Maps SDK** to integrate a map in our application. We used the Flutter Camera module to capture and share images on social media. We also used Flutter module and the **Calender SDK** to add a calendar and for adding events to it in the application. All in all, TravelScape relies heavily on **Google Could** and the suite of SDKs and functionalities it provides to deliver our users a feature-rich experience.
 
 ## Project Gallery📷
-Figma Design File - [Sian](https://www.figma.com/file/7pO11LUXzfJ1s8nq2i7qZP/Bon-Voyage-Hacks?node-id=0%3A1)
+Figma Design File - [TravelScape](https://www.figma.com/file/RopmLMqWSgDAiyUeahJ9dA/TravelScape?node-id=0%3A1)
 
 </br>
 <p align="center">
