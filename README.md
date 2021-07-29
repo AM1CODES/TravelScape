@@ -31,13 +31,19 @@ Figma Design File - [TravelScape](https://www.figma.com/file/RopmLMqWSgDAiyUeahJ
 
 </br>
 <p align="center">
-<img src="https://github.com/elecTRON-Fellowship/Sian-MLH/blob/main/designs/figma/Group%201.png" alt="drawing" width="700"/>
+<img src="https://github.com/amansharma2910/TravelScape/blob/main/Design/App%20UI/ReadeIm1.png" alt="drawing" width="700"/>
 </p>
 <p align="center">
-<img src="https://github.com/elecTRON-Fellowship/Sian-MLH/blob/main/designs/figma/Group%202.png" alt="drawing" width="700"/>
+<img src="https://github.com/amansharma2910/TravelScape/blob/main/Design/App%20UI/ReadeIm2.png" alt="drawing" width="700"/>
 </p>
 <p align="center">
-<img src="https://github.com/elecTRON-Fellowship/Sian-MLH/blob/main/designs/figma/Group%203.png" alt="drawing" width="700"/>
+<img src="https://github.com/amansharma2910/TravelScape/blob/main/Design/App%20UI/ReadeIm3.png" alt="drawing" width="700"/>
+</p>
+<p align="center">
+<img src="https://github.com/amansharma2910/TravelScape/blob/main/Design/App%20UI/ReadmeIm4.png" alt="drawing" width="700"/>
+</p>
+<p align="center">
+<img src="https://github.com/amansharma2910/TravelScape/blob/main/Design/App%20UI/ReadmeIm5.png" alt="drawing" width="700"/>
 </p>
 
 ## Challenges we ran into🔴
@@ -50,12 +56,12 @@ We were able to create our proper authentication system along with Google Auth w
 ## What we learned📚
 We got more experience in flutter and firebase by building this application.  Got to learn about different authentication systems and how everything interacts in the flutter application during auth. We also got to learn about various flutter modules that came in handy while building Sian. We also wished to integrate smart contracts in the app and hence got a chance to work around with solidity as well.
 
-## What's next for Sian🎉
+## What's next for TravelScape🎉
 The current point system that we have is dynamic but we would love to introduce smart contracts into the application to make the whole experience even more rewarding.
 
 ## Try it out here
 You can download the apk file to try it out yourself!</br>
-Download it here - [Sian](https://drive.google.com/drive/folders/1-GV4iofJgW17xEWMMIu47BEPczPhSqy6)
+Download it here - [TravelScape](https://drive.google.com/drive/folders/1-GV4iofJgW17xEWMMIu47BEPczPhSqy6)
 
 ## Creators 
 This Project was built by - 
