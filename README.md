@@ -61,7 +61,7 @@ The current point system that we have is dynamic but we would love to introduce 
 
 ## Try it out here
 You can download the apk file to try it out yourself!</br>
-Download it here - [TravelScape](https://drive.google.com/drive/folders/1-GV4iofJgW17xEWMMIu47BEPczPhSqy6)
+Download it here - [TravelScape](https://drive.google.com/file/d/1P1yheVBa9zCbbszMQkGrTy_msDTAEBmw/view?usp=sharing)
 
 ## Creators 
 This Project was built by - 
